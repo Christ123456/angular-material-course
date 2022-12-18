@@ -1,8 +1,28 @@
-<div class="create-course-panel data-form">
+<mat-stepper linear #stepper>
+  <mat-step>
+    <mat-form-field>
+      <mat-label>Macabo</mat-label>
+      <input matInput #inputMacabo email />
+    </mat-form-field>
 
-  <h2 class="title">Create New Course</h2>
+    <mat-error *ngIf="1">Toto est laid </mat-error>
 
+    <div class="stepper-buttons">
+      <button mat-raised-button matStepperNext color="accent">Next</button>
+    </div>
+  </mat-step>
 
-</div>
+  <mat-step>
+    <div class="stepper-buttons">
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-raised-button matStepperNext color="accent">Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <div class="stepper-buttons">
+      <button mat-button matStepperPrevious>Back</button>
 
-
+      <button mat-raised-button color="accent">Create</button>
+    </div>
+  </mat-step>
+</mat-stepper>

@@ -1,2 +1,60 @@
+<mat-sidenav-container fullscreen>
+   <!-- sside navigatio bar -->
+    <mat-sidenav #sidenav>
 
+        <mat-nav-list (click)="sidenav.close()">
+            <a mat-list-item class="navLinkItem">
+                <mat-icon class="navLinkIcon">home</mat-icon>
+                Home
+            </a>
 
+            <a mat-list-item routerLink="">
+                <mat-icon>library_books</mat-icon>
+                <span>Courses</span>
+
+            </a>
+
+            <a mat-list-item>
+                <mat-icon>login</mat-icon>
+                <span>Login</span>
+            </a>
+
+            <a mat-list-item>
+                <mat-icon>info</mat-icon>
+                <span>About</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    
+    <!-- Tool/navigation bar -->
+    <mat-toolbar color="primary">
+        <button mat-icon-button  (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <a mat-button [matMenuTriggerFor]="dropdown">
+            <span>Screen</span>
+        </a>
+
+        <!-- Dop down menu -->
+        <mat-menu #dropdown="matMenu" yPosition="below">
+            <button mat-menu-item routerLink="/"> Courses</button>
+            <button mat-menu-item routerLink="about"> About</button>
+        </mat-menu>
+        
+        <a mat-button>
+            <mat-icon>person_add</mat-icon>
+            <span>Register</span>
+        </a>
+
+        <a mat-button>
+            <mat-icon>account_circle</mat-icon>
+            <span>Login</span>
+        </a>
+
+    </mat-toolbar>
+
+<router-outlet></router-outlet>
+
+</mat-sidenav-container>

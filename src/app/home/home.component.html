@@ -1,16 +1,32 @@
-
 <div class="courses-panel">
-
   <div class="header">
-
     <h2 class="title">All Courses</h2>
 
     <button mat-mini-fab routerLink="/add-new-course">
       <mat-icon class="add-course-btn">add</mat-icon>
     </button>
-
   </div>
 
+  <mat-tab-group>
+    <mat-tab label="Beginners">
+      <courses-card-list [courses]="beginnerCourses$ | async">
+      </courses-card-list>
+    </mat-tab>
 
+    <mat-tab label="Abvanced">
+      <courses-card-list [courses]="advancedCourses$ | async">
+      </courses-card-list>
+    </mat-tab>
+  </mat-tab-group>
+
+  <course></course>
+
+  <input matInput [(ngModel)]="title" />
+  <button (click)="openDialog()" mat-raised-button color="primary">
+    Open Dialog
+  </button>
+
+  <div>
+    <input [(ngModel)]="title" />
+  </div>
 </div>
-

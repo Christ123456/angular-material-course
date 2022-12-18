@@ -1,5 +1,5 @@
 
->>> body {
+body {
     margin: 0;
 }
 
@@ -7,7 +7,19 @@ main {
     margin: 30px;
 }
 
-mat-toolbar a {
-  color: white;
+
+
+.navLink{
+  padding: 0px;
+
 }
 
+.navLink navLinkIcon{
+  display: inline;
+
+}
+
+.navLink navLinkText{
+  display: inline;
+
+}
