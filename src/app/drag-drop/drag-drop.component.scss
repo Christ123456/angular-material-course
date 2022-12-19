@@ -1,4 +1,3 @@
-
 .drag-drop-container {
   font-family: "Roboto";
   display: flex;
@@ -16,7 +15,6 @@
   border-radius: 4px;
   overflow: hidden;
 }
-
 
 .lesson {
   padding: 20px 10px;
@@ -36,15 +34,10 @@
   margin-left: 30px;
 }
 
+.drag-drop-preview {
+  max-width: 200px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.cdk-drag-placeholder {
+  opacity: 0;
+}
