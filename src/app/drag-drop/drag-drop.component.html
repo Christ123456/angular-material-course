@@ -3,7 +3,15 @@
     <h3>Lessons To Watch:</h3>
   </div>
 
-  <div class="lessons-list" cdkDropList (cdkDropListDropped)="drop($event)">
+  <!-- Lesson List-->
+  <div
+    class="lessons-list"
+    cdkDropList
+    #lessonList="cdkDropList"
+    [cdkDropListData]="lessons"
+    [cdkDropListConnectedTo]="[doneList]"
+    (cdkDropListDropped)="drop($event)"
+  >
     <div class="lesson" *ngFor="let lesson of lessons" cdkDrag>
       {{ lesson.description }}
 
@@ -15,9 +23,28 @@
       />
     </div>
   </div>
-  <!-- div class="done">
 
+  <!-- Done List-->
+  <div
+    class="done"
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[lessonList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+  >
     <h3>Done:</h3>
 
-  </div-->
+    <div class="lesson" *ngFor="let lesson of done" cdkDrag>
+      {{ lesson.description }}
+
+      <img
+        *cdkDragPreview
+        [src]="lesson.poster"
+        [alt]="lesson.description"
+        class="drag-drop-preview"
+      />
+    </div>
+  </div>
 </div>

@@ -113,7 +113,23 @@ export class DragDropComponent {
         "https://cdn.pixabay.com/photo/2022/10/11/06/35/alien-7513483_960_720.jpg",
     },
   ];
-  drop(event: CdkDragDrop<Lesson>) {
-    moveItemInArray(this.lessons, event.previousIndex, event.currentIndex);
+
+  done = [];
+
+  drop(event: CdkDragDrop<any>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
   }
 }
